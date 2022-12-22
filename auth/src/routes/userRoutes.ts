@@ -1,10 +1,19 @@
 import express from "express";
 import { body } from "express-validator";
 // controllers
-import { signUp, signIn, currentUser } from "../controller/userController";
+import {
+  signUp,
+  signIn,
+  currentUser,
+  signOut,
+} from "../controller/userController";
 
 // validation
 import { validateRequest } from "../middlewares/validate-request";
+
+// middleware
+import { currentUserMidd } from "../middlewares/current-user";
+import { requireAuth } from "../middlewares/require-auth";
 
 const route = express.Router();
 
@@ -34,10 +43,8 @@ route.post(
   signIn
 );
 
-route.post("/signout", (req, res) => {
-  res.send("hello from signout");
-});
+route.post("/signout", signOut);
 
-route.get("/currentuser", currentUser);
+route.get("/currentuser", currentUserMidd, requireAuth, currentUser);
 
 export default route;

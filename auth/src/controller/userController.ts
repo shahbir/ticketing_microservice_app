@@ -61,7 +61,10 @@ export const signIn = async (req: Request, res: Response) => {
 };
 
 export const currentUser = async (req: Request, res: Response) => {
-  if (!req.session || !req.session.jwt) {
-    return res.send({ currentUser: null });
-  }
+  res.send({ currentUser: req.currentUser || null });
+};
+
+export const signOut = async (req: Request, res: Response) => {
+  req.session = null;
+  res.send({});
 };
