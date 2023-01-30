@@ -9,11 +9,12 @@ import {
 } from "../controller/userController";
 
 // validation
-import { validateRequest } from "../middlewares/validate-request";
-
-// middleware
-import { currentUserMidd } from "../middlewares/current-user";
-import { requireAuth } from "../middlewares/require-auth";
+import {
+  validateRequest,
+  // middleware
+  currentUserMidd,
+  requireAuth,
+} from "@danishshafiq030/common";
 
 const route = express.Router();
 
