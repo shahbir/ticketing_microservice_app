@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { BadRequestError } from "../errors/bad-request-error";
+import { BadRequestError } from "@danishshafiq030/common";
 import jwt from "jsonwebtoken";
 
 import { Password } from "../services/password";
