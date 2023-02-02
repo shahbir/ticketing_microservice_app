@@ -4,7 +4,11 @@ import "express-async-errors";
 
 import cookieSession from "cookie-session";
 
-import { errorHandler, NotFoundError } from "@danishshafiq030/common";
+import {
+  errorHandler,
+  NotFoundError,
+  currentUserMidd,
+} from "@danishshafiq030/common";
 
 // routes
 import { TicketRouter } from "./routes/ticket";
@@ -20,6 +24,7 @@ app.use(
   })
 );
 
+app.use(currentUserMidd);
 app.use(TicketRouter);
 
 app.all("*", async () => {
