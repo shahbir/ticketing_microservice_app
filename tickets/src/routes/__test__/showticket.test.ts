@@ -14,7 +14,7 @@ import mongoose from "mongoose";
 
 //   const response = await request(app)
 //     .post("/api/tickets")
-//     // .set('Cookie', global.signin())
+//     .set("Cookie", (<any>global).signin())
 //     .send({ title, price })
 //     .expect(201);
 

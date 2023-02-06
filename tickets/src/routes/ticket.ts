@@ -51,7 +51,7 @@ router.get("/api/tickets/:id", async (req: Request, res: Response) => {
 
 router.post(
   "/api/tickets",
-  // requireAuth,
+  requireAuth,
   [
     body("title").not().isEmpty().withMessage("Title is required"),
     body("price")
